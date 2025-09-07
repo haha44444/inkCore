@@ -1,0 +1,123 @@
+# inkCore main config
+# Author: haha44444
+# The text in the message wrapped in %% is a placeholder
+
+color:
+  green-name-permission: "inkcore.chat.name.green"
+  green-message-permission: "inkcore.chat.message.g1reen"
+
+height-limits:
+  nether:
+    permission: "inkcore.nether.roofs.bypass"
+    upper: 127
+    fall-back-safe-y: 120
+    allow-place: false
+    messages:
+        console: "&cOnly players can use this command."
+        no-permission: "&c你没有下界上层权限"
+        not-in-nether: "&c无法使用此指令，你不在下界！"
+        in-roofs: "&c你已经在下界上层了"
+        in-floor: "&c你已经在下界下层了"
+        disallow-place: "&c下界上层不允许放置方块/实体"
+
+home:
+  permission: "inkcore.command.home"
+  max-homes: 3
+  teleport-warmup-seconds: 3
+  messages:
+    console: "&cOnly players can use this command."
+    no-permission: "&c你没有权限使用该指令"
+    set-home: "&a已设置家 #%home%"
+    del-home: "&c已删除家 #%home%"
+    home-not-found: "&c家 #%home% 不存在"
+    teleport-failed: "&c传送失败"
+    teleport-wait: "&7%second% 秒后传送至家 #%home%，请不要移动……"
+    teleport-wait-timer-error: "&c当前无法安排传送计时，请稍后重试"
+    teleport-cancel: "&c你移动了，传送已取消。"
+    hover: "&7点击传送到家 #%home%"
+    have-not-home: "&7你还没有设置任何家。使用 /sethome 1 设置你的第一个家"
+    ur-home: "&e你已设置的家: "
+    command-usage: "&7用法: /%command% <1|2|3>"
+    line-part: "&a#"
+
+stat:
+  pattern: "yyyy-MM-dd HH:mm:ss"
+  messages:
+    console: "&cOnly players can use this command."
+    yes-icon: "&a✅"
+    no-icon: "&c❌"
+    temp-yes-icon: "&a✅ &f%time%"
+    stat: |-
+      &5====================
+      &a在线时长: &f%onlineTime_days%天 %onlineTime_hours%小时 %onlineTime_minutes%分钟 %onlineTime_seconds%秒
+      &a首次加入: &f%firstJoinTime%
+      &a最近退出: &f%lastQuitTime%
+      &a死亡次数: &f%deathCount%
+      &a击杀玩家: &f%killedPlayers%
+      &5====================
+      &a下界上层权限: %hasNetherRootfsPermission%
+      &ahome权限: %hasHomePermission%
+      &a绿色聊天权限: %hasGreenChat%
+      &a绿色名字权限: %hasGreenName%
+      &a展示框复制权限: %hasFrameDupe%
+      &a展示框复制vip权限: %hasFrameDupeVip%
+      &a荧光物品展示框复制权限: %hasGlowFrameDupe%
+      &a荧光物品展示框复制vip权限: %hasGlowFrameDupeVip%
+      &5====================
+
+reload:
+  permission: "inkcore.admin"
+  messages:
+    reloaded: "&a已重载config.yml和data.yml"
+    no-permission: "&c你没有权限使用该指令"
+
+frame-dupe:
+  enable: true
+  need-permissions: true
+  permission: "inkcore.frame-dupe"
+  fix-shulkers: true
+
+  level1:
+    permission: "inkcore.frame-dupe"
+    probability-percentage: 20
+    multiplier: 1
+  level2:
+    permission: "inkcore.frame-dupe.vip"
+    probability-percentage: 50
+    multiplier: 3
+
+  blacklist:
+    enable: false
+    items:
+      - DIAMOND
+
+  whitelist:
+    enable: false
+    items:
+      - STICK
+
+
+glow-frame-dupe:
+  enable: true
+  need-permissions: true
+  permission: "inkcore.frame-dupe"
+  fix-shulkers: true
+
+  level1:
+    permission: "inkcore.frame-dupe"
+    probability-percentage: 20
+    multiplier: 1
+  level2:
+    permission: "inkcore.frame-dupe.vip"
+    probability-percentage: 50
+    multiplier: 3
+
+  blacklist:
+    enable: false
+    items:
+      - DIAMOND
+
+  whitelist:
+    enable: false
+    items:
+      - STICK

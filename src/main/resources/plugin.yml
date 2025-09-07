@@ -1,0 +1,42 @@
+name: inkCore
+version: ${version}
+main: top.haha44444.inkCore.InkCore
+api-version: '1.21'
+folia-supported: true
+softdepend: [luckperms]
+
+author: haha44444
+description: 2b2t.ink core plugin
+
+commands:
+  sethome:
+    description: Set a home at your current location
+    usage: "/sethome <1|2|3|x>"
+    permission: inkcore.command.home
+  delhome:
+    description: Delete a saved home
+    usage: "/delhome <1|2|3|x>"
+    permission: inkcore.command.home
+  home:
+    description: Teleport to a saved home
+    usage: "/home <1|2|3|x>"
+    permission: inkcore.command.home
+  homes:
+    description: List your existing homes
+    usage: "/homes"
+    permission: inkcore.command.home
+  totop:
+    description: Teleport your to nether roof
+    usage: "/totop"
+    permission: inkcore.nether.roofs.bypass
+  todown:
+    description: Teleport your to nether floor
+    usage: "/todown"
+    permission: inkcore.nether.roofs.bypass
+  stat:
+    description: Shows your permissions and stats
+    usage: "/stat"
+  inkcore:
+    description: Main command
+    usage: "/inkcore reload"
+    aliases: [ic]
