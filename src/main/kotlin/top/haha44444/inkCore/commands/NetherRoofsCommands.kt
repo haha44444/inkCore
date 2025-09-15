@@ -1,6 +1,5 @@
 package top.haha44444.inkCore.commands
 
-import io.papermc.paper.threadedregions.scheduler.ScheduledTask
 import net.kyori.adventure.text.Component
 import org.bukkit.Location
 import org.bukkit.World
@@ -13,6 +12,7 @@ import top.haha44444.inkCore.InkCore
 import java.util.Locale
 import top.haha44444.inkCore.event.PlayerOnNetherRoofs
 import top.haha44444.inkCore.utils.colorize
+import top.haha44444.inkCore.utils.runLater
 
 class NetherRoofsCommands(private val plugin: InkCore) : CommandExecutor, TabCompleter {
     // config
@@ -73,10 +73,10 @@ class NetherRoofsCommands(private val plugin: InkCore) : CommandExecutor, TabCom
                 // teleport to top
                 val w = sender.world
                 val targetLoc = Location(w, loc.blockX + 0.5, 128.0, loc.blockZ + 0.5)
-                // folia logic
-                sender.scheduler.run(plugin, {_: ScheduledTask ->
+
+                runLater(plugin, sender, 1L) {
                     sender.teleportAsync(targetLoc)
-                }, null)
+                }
             }
 
             "todown" -> {
@@ -91,10 +91,10 @@ class NetherRoofsCommands(private val plugin: InkCore) : CommandExecutor, TabCom
                 }
 
                 // teleport to down
-                // folia logic
-                sender.scheduler.run(plugin, { _: ScheduledTask ->
+
+                runLater(plugin, sender, 1L) {
                     PlayerOnNetherRoofs(plugin).correctEntityDownwards(sender)
-                }, null)
+                }
             }
 
         }
