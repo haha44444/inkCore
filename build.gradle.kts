@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "top.haha44444"
-version = "1.0-SNAPSHOT"
+version = "1.2-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -18,6 +18,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("net.luckperms:api:5.5")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compileOnly(fileTree("lib") { include("*.jar") })
 }
 
 tasks {

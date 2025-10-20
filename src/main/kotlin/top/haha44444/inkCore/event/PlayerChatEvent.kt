@@ -7,13 +7,12 @@ import net.kyori.adventure.text.format.Style
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
-import org.bukkit.event.Listener
 import top.haha44444.inkCore.InkCore
 
-class PlayerChatEvent(private val plugin: InkCore): Listener {
+class PlayerChatEvent(private val plugin: InkCore): ChatEventHandler {
     // config
-    var greenNamePermission: String ?= "inkcore.chat.name.green"
-    var greenMessagePermission: String ?= "inkcore.chat.message.green"
+    override var greenNamePermission: String? = "inkcore.chat.name.green"
+    override var greenMessagePermission: String? = "inkcore.chat.message.green"
 
     fun loadConfig() {
         greenMessagePermission = plugin.config.getString("color.green-message-permission")

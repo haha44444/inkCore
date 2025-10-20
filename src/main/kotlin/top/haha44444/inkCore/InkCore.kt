@@ -5,7 +5,11 @@ import top.haha44444.inkCore.commands.HomeCommands
 import top.haha44444.inkCore.commands.NetherRoofsCommands
 import top.haha44444.inkCore.commands.ReloadConfigCommand
 import top.haha44444.inkCore.commands.StatCommands
+import top.haha44444.inkCore.commands.event.LoggerFunction
+import top.haha44444.inkCore.commands.event.LoggerFunctionCompat
+import top.haha44444.inkCore.event.ChatEventHandler
 import top.haha44444.inkCore.event.FrameBreakEvent
+import top.haha44444.inkCore.event.PistonPlayerChatEvent
 import top.haha44444.inkCore.event.PlayerChatEvent
 import top.haha44444.inkCore.event.PlayerOnNetherRoofs
 import top.haha44444.inkCore.storage.HomeStorage
@@ -36,7 +40,7 @@ class InkCore : JavaPlugin() {
     lateinit var playerOnNetherRoofs: PlayerOnNetherRoofs
         private set
 
-    lateinit var playerChatEvent: PlayerChatEvent
+    lateinit var playerChatEvent: ChatEventHandler
         private set
 
 
@@ -64,7 +68,17 @@ class InkCore : JavaPlugin() {
         playerOnNetherRoofs = PlayerOnNetherRoofs(this)
         frameBreakEventAll = FrameBreakEvent(this).FrameAll()
         frameBreakEventSpecific = FrameBreakEvent(this).FrameSpecific()
-        playerChatEvent = PlayerChatEvent(this)
+        // PistonChat compat
+        if (server.pluginManager.getPlugin("PistonChat") != null && server.pluginManager.isPluginEnabled("PistonChat")) {
+            playerChatEvent = PistonPlayerChatEvent(this)
+            server.pluginManager.registerEvents(LoggerFunctionCompat(this), this)
+            logger.info("找到PistonChat 已启用支持")
+            }
+        else {
+            playerChatEvent = PlayerChatEvent(this)
+            server.pluginManager.registerEvents(LoggerFunction(this), this)
+            logger.info("未找到PistonChat 已禁用支持")
+        }
 
 
         // register events

@@ -3,7 +3,7 @@ version: ${version}
 main: top.haha44444.inkCore.InkCore
 api-version: '1.21'
 folia-supported: true
-softdepend: [luckperms]
+softdepend: [luckperms, PistonChat]
 
 author: haha44444
 description: 2b2t.ink core plugin
