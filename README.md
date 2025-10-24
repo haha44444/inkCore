@@ -10,7 +10,7 @@ A Paper plugin for 2b2t.ink anarchy server.
 - **统计信息**：显示玩家在线时长、加入时间、击杀与死亡等
 - **Frame Dupe 支持**：物品展示框和荧光展示框复制（含 VIP 权限倍率）
 - **配置热重载**：通过命令快速重载插件配置
-- **PistonChat兼容**：可以在启用PistonChat时同时使用聊天/id颜色（需要使用我的[PistonChat fork](https://github.com/haha44444/PistonChat)，构建文件可以在[此处](https://github.com/haha44444/inkCore/tree/main/lib)找到）
+  - **PistonChat兼容**：可以在启用PistonChat时同时使用聊天/id颜色 </br> ~~（需要使用我的[PistonChat fork](https://github.com/haha44444/PistonChat)，构建文件可以在[此处](https://github.com/haha44444/inkCore/tree/main/lib)找到）~~ </br> 已合并至PistonChat[主分支](https://github.com/AlexProgrammerDE/PistonChat/pull/222)，直接使用PistonChat在[Actions](https://github.com/AlexProgrammerDE/PistonChat/actions)中的最新构建即可
 
 ## Commands
 - `/sethome <1|2|3|x>` - 设置家
