@@ -14,6 +14,7 @@ import org.bukkit.command.TabCompleter
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
+import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import top.haha44444.inkCore.InkCore
@@ -203,6 +204,12 @@ class HomeCommands(private val plugin: InkCore, private val storage: HomeStorage
         if (to.blockX != fromBlock.blockX || to.blockY != fromBlock.blockY || to.blockZ != fromBlock.blockZ) {
             cancelPending(uuid)
         }
+    }
+
+    @EventHandler
+    private fun onDamage(e: EntityDamageByEntityEvent) {
+        val uuid = e.entity.uniqueId
+        cancelPending(uuid)
     }
 
     @EventHandler

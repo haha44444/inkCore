@@ -33,7 +33,7 @@ home:
     teleport-failed: "&c传送失败"
     teleport-wait: "&7%second% 秒后传送至家 #%home%，请不要移动……"
     teleport-wait-timer-error: "&c当前无法安排传送计时，请稍后重试"
-    teleport-cancel: "&c你移动了，传送已取消。"
+    teleport-cancel: "&c你移动/受到伤害了，传送已取消。"
     hover: "&7点击传送到家 #%home%"
     have-not-home: "&7你还没有设置任何家。使用 /sethome 1 设置你的第一个家"
     ur-home: "&e你已设置的家: "
