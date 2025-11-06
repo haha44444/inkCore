@@ -209,13 +209,16 @@ class HomeCommands(private val plugin: InkCore, private val storage: HomeStorage
     @EventHandler
     private fun onDamage(e: EntityDamageByEntityEvent) {
         val uuid = e.entity.uniqueId
-        cancelPending(uuid)
+        if (pending.containsKey(uuid)) {
+            cancelPending(uuid)
+        }
     }
 
     @EventHandler
     private fun onQuit(e: PlayerQuitEvent) {
-        if (pending.containsKey(e.player.uniqueId)) {
-            cancelPending(e.player.uniqueId, silent = true)
+        val uuid = e.player.uniqueId
+        if (pending.containsKey(uuid)) {
+            cancelPending(uuid, silent = true)
         }
     }
 

@@ -12,6 +12,7 @@ import top.haha44444.inkCore.event.FrameBreakEvent
 import top.haha44444.inkCore.event.PistonPlayerChatEvent
 import top.haha44444.inkCore.event.PlayerChatEvent
 import top.haha44444.inkCore.event.PlayerOnNetherRoofs
+import top.haha44444.inkCore.event.PlayerQuitListener
 import top.haha44444.inkCore.storage.HomeStorage
 import top.haha44444.inkCore.utils.GetMinecraftVersionUtil
 
@@ -41,6 +42,9 @@ class InkCore : JavaPlugin() {
         private set
 
     lateinit var playerChatEvent: ChatEventHandler
+        private set
+
+    lateinit var playerQuitListener: PlayerQuitListener
         private set
 
 
@@ -86,6 +90,7 @@ class InkCore : JavaPlugin() {
         this.server.pluginManager.registerEvents(homeCmd, this)
         this.server.pluginManager.registerEvents(playerChatEvent, this)
         this.server.pluginManager.registerEvents(frameBreakEventAll, this)
+        this.server.pluginManager.registerEvents(playerQuitListener, this)
         if (mcVersion >=17) this.server.pluginManager.registerEvents(frameBreakEventSpecific, this)
 
 

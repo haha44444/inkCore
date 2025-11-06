@@ -64,6 +64,7 @@ class ReloadConfigCommand(private val plugin: InkCore): CommandExecutor, TabComp
                             plugin.playerOnNetherRoofs.loadConfig()
                             plugin.frameBreakEventAll.loadConfig()
                             plugin.frameBreakEventSpecific.loadConfig()
+                            plugin.playerQuitListener.loadConfig()
 
                             reloadedMsg?.let { sender.msg(it) }
                         }

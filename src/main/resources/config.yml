@@ -2,6 +2,8 @@
 # Author: haha44444
 # The text in the message wrapped in %% is a placeholder
 
+deop-on-quit: true
+
 color:
   green-name-permission: "inkcore.chat.name.green"
   green-message-permission: "inkcore.chat.message.green"
