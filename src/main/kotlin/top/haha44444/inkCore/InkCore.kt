@@ -70,6 +70,7 @@ class InkCore : JavaPlugin() {
         playerOnNetherRoofs = PlayerOnNetherRoofs(this)
         frameBreakEventAll = FrameBreakEvent(this).FrameAll()
         frameBreakEventSpecific = FrameBreakEvent(this).FrameSpecific()
+        playerQuitListener = PlayerQuitListener(this)
         // PistonChat compat
         if (server.pluginManager.getPlugin("PistonChat") != null && server.pluginManager.isPluginEnabled("PistonChat")) {
             playerChatEvent = PistonPlayerChatEvent(this)
